@@ -104,6 +104,15 @@ int main(int argc, char *argv[])
     // The while() cycle should be changed in order to respect the specifications
     // of the protocol indicated in the Lab guide
 
+    // TESTING: The reader is going to write in the writer
+
+    // If I want the reader to send a sentence to the writer
+    // int bytes = write(fd, buf, strlen(buf)+1);
+    // printf("%d bytes written\n", bytes);
+
+    // Wait until all bytes have been written to the serial port
+    sleep(1);
+
     // Restore the old port settings
     if (tcsetattr(fd, TCSANOW, &oldtio) == -1)
     {

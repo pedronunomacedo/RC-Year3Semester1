@@ -113,6 +113,20 @@ int main(int argc, char *argv[])
         exit(-1);
     }
 
+
+
+
+    // If I want to read the sentence the reader sent me
+    // while (STOP == FALSE)
+    // {
+    //     // Returns after 5 chars have been input
+    //     int bytes = read(fd, buf, BUF_SIZE);
+
+    //     printf(":%s:%d\n", buf, bytes);
+    //     if (buf[bytes] == '\0')
+    //         STOP = TRUE;
+    // }
+
     close(fd);
 
     return 0;
