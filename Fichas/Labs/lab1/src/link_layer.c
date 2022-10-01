@@ -1,16 +1,24 @@
 // Link layer protocol implementation
 
 #include "link_layer.h"
+#include "fcntl.h"
+#include <unistd.h>
 
 // MISC
 #define _POSIX_SOURCE 1 // POSIX compliant source
-
+int fd;
 ////////////////////////////////////////////////
 // LLOPEN
 ////////////////////////////////////////////////
 int llopen(LinkLayer connectionParameters)
 {
-    // TODO
+    fd = open(connectionParameters.serialPort, O_RDWR | O_NOCTTY);
+
+    if (fd < 0)
+    {
+        perror(connectionParameters.serialPort);
+        return -1;
+    }
 
     return 1;
 }
@@ -20,8 +28,10 @@ int llopen(LinkLayer connectionParameters)
 ////////////////////////////////////////////////
 int llwrite(const unsigned char *buf, int bufSize)
 {
-    // TODO
-
+    for(int i=0; i < strlen(buf); i++){
+        if (write(fd, buf[i], 1) < 0) return -1;
+    }
+    
     return 0;
 }
 
