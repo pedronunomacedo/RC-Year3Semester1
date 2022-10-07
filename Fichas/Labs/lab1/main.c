@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "application_layer.h"
+#include "include/application_layer.h"
 
 #define BAUDRATE 9600
 #define N_TRIES 3
@@ -40,8 +40,7 @@ int main(int argc, char *argv[])
            TIMEOUT,
            filename);
 
-    applicatio
-    nLayer(serialPort, role, BAUDRATE, N_TRIES, TIMEOUT, filename);
+    applicationLayer(serialPort, role, BAUDRATE, N_TRIES, TIMEOUT, filename);
 
     return 0;
 }

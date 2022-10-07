@@ -1,6 +1,6 @@
 // Application layer protocol implementation
 
-#include "application_layer.h"
+#include "../include/application_layer.h"
 #define BUF_SIZE 256
 void applicationLayer(const char *serialPort, const char *role, int baudRate,
                       int nTries, int timeout, const char *filename)
@@ -17,13 +17,9 @@ void applicationLayer(const char *serialPort, const char *role, int baudRate,
     defs.nRetransmissions = nTries;
     defs.timeout = timeout;
 
-    if (llopen(defs) < 0) {
-        return 1;
-    }
+    llopen(defs);
     
-    if (llwrite(filename, BUF_SIZE) < 0) {
-        return 1;
-    }
+    llwrite(filename, BUF_SIZE);
 
     
 
