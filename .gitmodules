@@ -1,1 +1,4 @@
 
+[submodule "Projects/2nd-Project"]
+	path = Projects/2nd-Project
+	url = git@github.com:pedronunomacedo/rcom-project-g0901-2nd-Project.git
